@@ -19,12 +19,12 @@ public class RomanNumeralConvertor {
 		convertorMap.put('M', 1000);
 	}
 
-	public int convert(String value) throws ParseException {
+	public int convert(String romanNumeral) throws ParseException {
 		int convertedValue = 0;
 		
-		for (int i=0; i<value.length(); i++){
-			Integer convertedDigit = convertNumeral(value, i);
-			boolean shouldBeAdded = calculateShouldBeAdded(value, i, convertedDigit);
+		for (int index=0; index<romanNumeral.length(); index++){
+			Integer convertedDigit = convertNumeralAtIndex(romanNumeral, index);
+			boolean shouldBeAdded = determineIfDigitAtIndexShouldBeAdded(romanNumeral, index, convertedDigit);
 			if (shouldBeAdded){
 				convertedValue += convertedDigit;
 			} else {
@@ -35,27 +35,31 @@ public class RomanNumeralConvertor {
 		return convertedValue;
 	}
 
-	private Integer convertNumeral(String value, int i) throws ParseException {
-		Integer convertedDigit = convertorMap.get(value.charAt(i));
+	private Integer convertNumeralAtIndex(String value, int index) throws ParseException {
+		Integer convertedDigit = convertorMap.get(value.charAt(index));
 		if (convertedDigit == null){
 			throw new ParseException("Not a valid roman numeral " + value, 0);
 		}
 		return convertedDigit;
 	}
 
-	private boolean calculateShouldBeAdded(String value, int i, Integer convertedDigit) throws ParseException {
+	private boolean determineIfDigitAtIndexShouldBeAdded(String value, int index, Integer convertedDigit) throws ParseException {
 		boolean shouldBeAdded = true;
-		if (i+1<value.length()){
-			if (shouldBeSubtracted(value, i, convertedDigit)){
+		if (isNotLastNumeral(value, index)){
+			if (shouldBeSubtracted(value, index, convertedDigit)){
 				shouldBeAdded = false;
 			}
 		}
 		return shouldBeAdded;
 	}
 
+	private boolean isNotLastNumeral(String value, int index) {
+		return index+1<value.length();
+	}
+
 	protected boolean shouldBeSubtracted(String value, Integer index,Integer convertedDigit) throws ParseException {
 		if (index+1<value.length()){
-			Integer nextConvertedDigit = convertNumeral(value, index+1);
+			Integer nextConvertedDigit = convertNumeralAtIndex(value, index+1);
 
 			if (convertedDigit < nextConvertedDigit){
 				return true;
@@ -67,5 +71,5 @@ public class RomanNumeralConvertor {
 		}
 		return false;
 	}
-
+	
 }
