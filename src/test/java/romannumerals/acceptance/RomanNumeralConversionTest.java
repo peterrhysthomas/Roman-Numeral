@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized;
 import romannumerals.RomanNumeralConvertor;
 
 @RunWith(value = Parameterized.class)
-public class RomanNumeralConversionTests {
+public class RomanNumeralConversionTest {
 
     private final String romanNumeral;
     private final int expectedValue;
@@ -38,7 +38,7 @@ public class RomanNumeralConversionTests {
         return Arrays.asList(data);
     }
 
-    public RomanNumeralConversionTests(String romanNumeral, int expectedValue){
+    public RomanNumeralConversionTest(String romanNumeral, int expectedValue){
         this.romanNumeral = romanNumeral;
         this.expectedValue = expectedValue;
     }

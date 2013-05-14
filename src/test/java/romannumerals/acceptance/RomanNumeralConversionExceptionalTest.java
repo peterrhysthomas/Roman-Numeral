@@ -12,7 +12,7 @@ import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 
-public class RomanNumeralConversionExceptionalTests {
+public class RomanNumeralConversionExceptionalTest {
 
     private RomanNumeralConvertor convertor;
 
