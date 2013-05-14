@@ -58,13 +58,11 @@ public class RomanNumeralConvertor {
 	}
 
 	protected boolean shouldBeSubtracted(String value, Integer index,Integer convertedDigit) throws ParseException {
-		if (index+1<value.length()){
+		if (isNotLastNumeral(value, index)){
 			Integer nextConvertedDigit = convertNumeralAtIndex(value, index+1);
 
 			if (convertedDigit < nextConvertedDigit){
 				return true;
-			} if (convertedDigit.equals(nextConvertedDigit)){
-				return shouldBeSubtracted(value, index+1, nextConvertedDigit);
 			} else {
 				return false;
 			}

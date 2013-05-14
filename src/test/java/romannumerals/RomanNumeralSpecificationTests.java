@@ -36,13 +36,8 @@ public class RomanNumeralSpecificationTests {
 		assertTrue(convertor.shouldBeSubtracted("IV", 0, 1));
 	}
 
-	@Test
-	public void shouldDetermineIIVAsSubtractive() throws ParseException{
-		assertTrue(convertor.shouldBeSubtracted("IIV", 0, 1));
-	}
-	
 	@Test(expected=ParseException.class)
 	public void shouldDetermineIIZAsInvalid() throws ParseException{
-		convertor.shouldBeSubtracted("IIZ", 0, 1);
+		convertor.shouldBeSubtracted("IZ", 0, 1);
 	}
 }

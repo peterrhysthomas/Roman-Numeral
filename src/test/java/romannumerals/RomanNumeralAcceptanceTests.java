@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.text.ParseException;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RomanNumeralAcceptanceTests {
@@ -78,11 +77,6 @@ public class RomanNumeralAcceptanceTests {
 	}
 
 	@Test
-	public void shouldCombineMultipleNumbersSubtractively() throws ParseException{
-		assertEquals(convertor.convert("IIV"), 3);
-	}
-	
-	@Test
 	public void shouldReturn2006ForMMVI() throws ParseException{
 		assertEquals(convertor.convert("MMVI"), 2006);
 	}
@@ -91,6 +85,11 @@ public class RomanNumeralAcceptanceTests {
 	public void shouldReturn1944ForMCMXLIV() throws ParseException{
 		assertEquals(convertor.convert("MCMXLIV"), 1944);
 	}
+
+    @Test
+    public void shouldReturn1994ForMCMLIV() throws ParseException{
+        assertEquals(convertor.convert("MCMXCIV"), 1994);
+    }
 
 
 }

@@ -3,5 +3,12 @@
   <groupId>peter</groupId>
   <artifactId>RomanNumeral</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Roman Numerals</name>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.9</version>
+        </dependency>
+    </dependencies>
+    <name>Roman Numerals</name>
 </project>
