@@ -1,49 +1,48 @@
 [![Build Status](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/badge/icon)](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/)
 
 
-![Living Documentation](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/lastSuccessfulBuild/artifact/target/concordion/romannumerals/RomanNumeralsDescription.html)
+[Documentation](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/lastSuccessfulBuild/artifact/target/concordion/romannumerals/RomanNumeralsDescription.html)
 
--------------------------------------------
-Roman Numeral Kata
--------------------------------------------
-
-| Symbol | Value |
-|      I |     1 |
-|      V |     5 | 
-|      X |    10 |
-|      L |    50 |
-|      C |   100 |
-|      D |   500 |
-|      M |  1000 |
-
-Additive and Subtractive Principles - 
-
-Generally, Roman numerals are written in descending order from left to right, and are added sequentially, for example MMVI (2006) is interpreted as 1000 + 1000 + 5 + 1.
-Certain combinations employ a subtractive principle, which specifies that where a symbol of smaller value precedes a symbol of larger value, the smaller value is subtracted from the larger value, and the result is added to the total. For example, in MCMXLIV (1944), the symbols C, X and I each precede a symbol of higher value, and the result is interpreted as 1000 plus (1000 minus 100) plus (50 minus 10) plus (5 minus 1).
-
-| Symbol  | Value |
-|     IV  |     4 |
-|     VI  |     6 |
-|   MMVI  |  2006 |
-| MCMXCIV |  1994 |
 
 Advanced Rules - 
 (Despite there being no standardisation for Roman Numerals, the following rules generally apply)
 
-- The symbols "I", "X", "C", and "M" can be repeated three times in succession, but no more. "D", "L", and "V" can never be repeated.  This due to the additive (or subtractive) total of these consecutive digits being less than the next symbol's value.
+The symbols "I", "X", "C", and "M" can be repeated three times in succession, but no more. "D", "L", and "V" can never be repeated.  This due to the additive (or subtractive) total of these consecutive digits being less than the next symbol's value.
 
-| Symbol | Value | Valid?  |
-|    III |     3 |   Valid |
-|   IIII |     4 | Invalid |
-|     IV |     4 |   Valid |
-|  XXXIX |    39 |   Valid |
-|     DD |  1000 | Invalid |
+<table>
+  <tr>
+    <th>Symbol</th><th>Value</th><th>Valid?</th>
+  </tr>
+  <tr>
+    <th>III</th><th>3</th><th>Valid</th>
+  </tr>
+  <tr>
+    <th>IIII</th><th>4</th><th>Invalid</th>
+  </tr>
+  <tr>
+    <th>IV</th><th>4</th><th>Valid</th>
+  </tr>
+  <tr>
+    <th>XXXIX</th><th>39</th><th>Valid</th>
+  </tr>
+  <tr>
+    <th>DD</th><th>1000</th><th>Invalid</th>
+  </tr>
+</table>
 
-- "I" can be subtracted from "V" and "X" only. "X" can be subtracted from "L" and "C" only. "C" can be subtracted from "D" and "M" only. "V", "L", and "D" can never be subtracted. 
+"I" can be subtracted from "V" and "X" only. "X" can be subtracted from "L" and "C" only. "C" can be subtracted from "D" and "M" only. "V", "L", and "D" can never be subtracted.
 
-| Symbol | Value | Valid?  |
-|     IL |    49 | Invalid |
-|   XLIX |    49 |   Valid |
+<table>
+  <tr>
+    <th>Symbol</th><th>Value</th><th>Valid?</th>
+  </tr>
+  <tr>
+    <th>IL</th><th>49</th><th>Invalid</th>
+  </tr>
+  <tr>
+    <th>XLIX</th><th>49</th><th>Valid</th>
+  </tr>
+</table>
 
 ----------------------------
 Triangulation and Baby Steps
@@ -55,9 +54,9 @@ Initially, the implementation can consist of a series of if/else statements but 
 
 "As the tests get more specific, the code gets more generic."
 
-At this point, the implementation can be reworked, using triangulation to determine the more generic solution.  Uncle bob gives a nice explanation of the concept of this here - 
+At this point, the implementation can be reworked, using triangulation to determine the more generic solution.  Uncle bob gives a nice explanation of the concept of this [here][1] -
 
-http://cleancoder.posterous.com/the-transformation-priority-premise
+[1]: http://cleancoder.posterous.com/the-transformation-priority-premise
 
 
 
