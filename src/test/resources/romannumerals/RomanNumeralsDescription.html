@@ -1,0 +1,81 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+
+<head>
+    <link href="../concordion.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>Roman Numerals</h1>
+
+<p>
+    <b>Additive and Subtractive Principles:</b>
+</p>
+<p>
+
+    Generally, Roman numerals are written in descending order from left to right, and are added sequentially, for example MMVI (2006) is interpreted as 1000 + 1000 + 5 + 1.
+    Certain combinations employ a subtractive principle, which specifies that where a symbol of smaller value precedes a symbol of larger value, the smaller value is subtracted from the larger value, and the result is added to the total. For example, in MCMXLIV (1944), the symbols C, X and I each precede a symbol of higher value, and the result is interpreted as 1000 plus (1000 minus 100) plus (50 minus 10) plus (5 minus 1).
+</p>
+
+<div class="example">
+
+    <h3>Examples</h3>
+
+    <table concordion:execute="#result = convert(#numeral)">
+        <tr>
+            <th concordion:set="#numeral">Roman Numeral</th>
+            <th concordion:assertEquals="#result">Value</th>
+        </tr>
+        <tr>
+            <td>I</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>IV</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>V</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>VI</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>X</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>L</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>M</td>
+            <td>1000</td>
+        </tr>
+        <tr>
+            <td>MCMXLIV</td>
+            <td>1944</td>
+        </tr>
+        <tr>
+            <td>MCMXCIV</td>
+            <td>1994</td>
+        </tr>
+        <tr>
+            <td>MMVI</td>
+            <td>2006</td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
