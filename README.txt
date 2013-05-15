@@ -1,3 +1,5 @@
+[![Build Status](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/badge/icon)](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/)
+
 -------------------------------------------
 Roman Numeral Kata
 -------------------------------------------
