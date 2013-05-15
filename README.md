@@ -1,7 +1,7 @@
 [![Build Status](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/badge/icon)](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/)
 
 
-![Bilby Stampede](http://www.iana.org/_img/2013.1/iana-logo-header.svg)
+![Living Documentation](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/lastSuccessfulBuild/artifact/target/concordion/romannumerals/RomanNumeralsDescription.html)
 
 -------------------------------------------
 Roman Numeral Kata
