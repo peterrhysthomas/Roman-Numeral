@@ -2,11 +2,14 @@ package romannumerals;
 
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class RomanNumeralConvertor {
 	
 	private Map<Character, Integer> convertorMap;
+    private Set<Character> nonSubtractingNumerals;
 	
 	public RomanNumeralConvertor(){
 		convertorMap = new HashMap<Character, Integer>();
@@ -17,10 +20,16 @@ public class RomanNumeralConvertor {
 		convertorMap.put('C', 100);
 		convertorMap.put('D', 500);
 		convertorMap.put('M', 1000);
+
+        nonSubtractingNumerals = new HashSet<Character>();
+        nonSubtractingNumerals.add('V');
+        nonSubtractingNumerals.add('L');
+        nonSubtractingNumerals.add('D');
 	}
 
 	public int convert(String romanNumeral) throws ParseException {
 		int convertedValue = 0;
+        checkIfValid(romanNumeral);
 		
 		for (int index=0; index<romanNumeral.length(); index++){
 			Integer convertedDigit = convertNumeralAtIndex(romanNumeral, index);
@@ -35,7 +44,13 @@ public class RomanNumeralConvertor {
 		return convertedValue;
 	}
 
-	private Integer convertNumeralAtIndex(String value, int index) throws ParseException {
+    private void checkIfValid(String romanNumeral) throws ParseException {
+        if (romanNumeral.contains("IIII") || romanNumeral.contains("XXXX") || romanNumeral.contains("CCCC") || romanNumeral.contains("MMMM")){
+            throw new ParseException("Invalid format " + romanNumeral, 0);
+        }
+    }
+
+    private Integer convertNumeralAtIndex(String value, int index) throws ParseException {
 		Integer convertedDigit = convertorMap.get(value.charAt(index));
 		if (convertedDigit == null){
 			throw new ParseException("Not a valid roman numeral " + value, 0);
@@ -62,6 +77,7 @@ public class RomanNumeralConvertor {
 			Integer nextConvertedDigit = convertNumeralAtIndex(value, index+1);
 
 			if (convertedDigit < nextConvertedDigit){
+                checkCanBeSubtracted(value, convertedDigit, nextConvertedDigit);
 				return true;
 			} else {
 				return false;
@@ -69,5 +85,25 @@ public class RomanNumeralConvertor {
 		}
 		return false;
 	}
-	
+
+    private void checkCanBeSubtracted(String value, Integer convertedDigit, Integer nextConvertedDigit) throws ParseException {
+        if (((nextConvertedDigit - convertedDigit) / convertedDigit) > 9.0 ) {
+            throw new ParseException("Not a valid roman numeral " + value, 0);
+        }
+
+        if (nonSubtractingNumerals.contains(numeralValueOf(convertedDigit))){
+            throw new ParseException("Not a valid roman numeral " + value, 0);
+        }
+
+    }
+
+    private Character numeralValueOf(Integer convertedDigit) {
+        for (Character key : convertorMap.keySet()){
+            if (convertorMap.get(key).equals(convertedDigit)){
+                return key;
+            }
+        }
+        return null;
+    }
+
 }
