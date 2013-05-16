@@ -76,6 +76,80 @@
         </tr>
     </table>
 
+    <p>
+    <b>Advanced Rules</b> - (Despite there being no standardisation for Roman Numerals, the following rules generally apply)
+
+    The symbols "I", "X", "C", and "M" can be repeated three times in succession, but no more. "D", "L", and "V" can never be repeated. This due to the additive (or subtractive) total of these consecutive digits being less than the next symbol's value.
+
+    </p>
+    <table concordion:execute="#result = isValid(#numeral)">
+        <tr>
+            <th concordion:set="#numeral">Roman Numeral</th>
+            <th>Value</th>
+            <th concordion:assertEquals="#result">Value</th>
+        </tr>
+        <tr>
+            <td>III</td>
+            <td>3</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>IIII</td>
+            <td>4</td>
+            <td>Invalid</td>
+        </tr>
+        <tr>
+            <td>IV</td>
+            <td>4</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>XXXIX</td>
+            <td>39</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>XXXXIX</td>
+            <td>49</td>
+            <td>Invalid</td>
+        </tr>
+        <tr>
+            <td>XLIX</td>
+            <td>49</td>
+            <td>Valid</td>
+        </tr>
+        <tr>
+            <td>DD</td>
+            <td>1000</td>
+            <td>Invalid</td>
+        </tr>
+        <tr>
+            <td>M</td>
+            <td>1000</td>
+            <td>Valid</td>
+        </tr>
+</table>
+    <p>
+        "I" can be subtracted from "V" and "X" only. "X" can be subtracted from "L" and "C" only. "C" can be subtracted from "D" and "M" only. "V", "L", and "D" can never be subtracted.
+    </p>
+
+    <table concordion:execute="#result = isValid(#numeral)">
+        <tr>
+            <th concordion:set="#numeral">Roman Numeral</th>
+            <th>Value</th>
+            <th concordion:assertEquals="#result">Value</th>
+        </tr>
+        <tr>
+            <td>IL</td>
+            <td>49</td>
+            <td>Invalid</td>
+        </tr>
+        <tr>
+            <td>XLIX</td>
+            <td>49</td>
+            <td>Valid</td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

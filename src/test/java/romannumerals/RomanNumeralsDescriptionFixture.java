@@ -21,4 +21,13 @@ public class RomanNumeralsDescriptionFixture {
         return convertor.convert(numeral);
     }
 
+    public String isValid(String numeral){
+        try {
+            convertor.convert(numeral);
+            return "Valid";
+        } catch (ParseException e) {
+            return "Invalid";
+        }
+    }
+
 }

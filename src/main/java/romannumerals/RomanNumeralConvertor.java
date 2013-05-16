@@ -45,7 +45,11 @@ public class RomanNumeralConvertor {
 	}
 
     private void checkIfValid(String romanNumeral) throws ParseException {
-        if (romanNumeral.contains("IIII") || romanNumeral.contains("XXXX") || romanNumeral.contains("CCCC") || romanNumeral.contains("MMMM")){
+        if (romanNumeral.contains("IIII") ||
+            romanNumeral.contains("XXXX") ||
+            romanNumeral.contains("CCCC") ||
+            romanNumeral.contains("MMMM") ||
+            romanNumeral.contains("DD")){
             throw new ParseException("Invalid format " + romanNumeral, 0);
         }
     }
