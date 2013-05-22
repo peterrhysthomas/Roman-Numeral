@@ -1,14 +1,13 @@
 defaultTasks 'clean', 'build'
 
 apply plugin:'java'
-apply plugin:'maven'
-apply plugin:'idea'
 
 buildDir='target'
 version='1.0'
 group='com.blah'
 
 repositories{
+    mavenLocal()
     mavenCentral()
 }
 

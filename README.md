@@ -1,7 +1,7 @@
 [![Build Status](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/badge/icon)](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/)
 
 
-[Documentation](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/lastSuccessfulBuild/artifact/target/concordion/romannumerals/RomanNumeralsDescription.html)
+[Documentation](https://peterrhysthomas.ci.cloudbees.com/job/Roman%20Numerals/lastSuccessfulBuild/artifact/target/concordion-results/romannumerals/RomanNumeralsDescription.html)
 
 ----------------------------
 Triangulation and Baby Steps
