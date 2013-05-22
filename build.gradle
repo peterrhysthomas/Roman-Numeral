@@ -9,7 +9,7 @@ version='1.0'
 group='com.blah'
 
 repositories{
-    mavenLocal()
+    mavenCentral()
 }
 
 idea.module{
