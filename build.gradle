@@ -1,0 +1,26 @@
+defaultTasks 'clean', 'build'
+
+apply plugin:'java'
+apply plugin:'idea'
+
+buildDir='target'
+version='1.0'
+group='com.blah'
+
+repositories{
+    mavenLocal()
+}
+
+idea.module{
+    downloadSources=true
+}
+
+dependencies{
+    testCompile "junit:junit:4.11"
+    testCompile "org.agileinsider:concordion-plus:1.1.2"
+}
+
+test{
+    systemProperties 'concordion.output.dir':file("${buildDir}/concordion-results")
+}
+
